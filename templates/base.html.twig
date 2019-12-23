@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Best Goods Korea</title>
+		<!-- Favicon  -->
+		<link
+		rel="icon" href="/img/core-img/favicon.ico">
+
+		<!-- Core Style CSS -->
+		<link rel="stylesheet" href="/css/core-style.css">
+		<link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="/css/toast.css">
+		<link rel="stylesheet" href="/css/waiting.css">
+	</head>
+	<body>
+		<!-- Search Wrapper Area Start -->
+		<div class="search-wrapper section-padding-100">
+			<div class="search-close">
+				<i class="fa fa-close" aria-hidden="true"></i>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="search-content">
+							<form>
+								<input type="search" name="search" id="search" placeholder="Nhập tên sản phẩm...">
+								<button id="btn_search"><img src="/img/core-img/search.png" alt=""></button>
+                                <div id="nice_select" class="nice-select w-100" style="position: absolute;top: 0;height: 60px;z-index: -1;">
+                                    <ul class="list" style="max-height: 50vh; overflow: auto; width: 100%" id="search_results">
+                                    </ul>
+                                </div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Search Wrapper Area End -->
+
+		<!-- ##### Main Content Wrapper Start ##### -->
+		<div
+			class="main-content-wrapper d-flex clearfix">
+
+			<!-- Mobile Nav (max width 767px)-->
+			<div
+				class="mobile-nav">
+				<!-- Navbar Brand -->
+				<div class="amado-navbar-brand">
+					<a href="/"><img src="/img/core-img/logo.png" alt=""></a>
+				</div>
+				<!-- Navbar Toggler -->
+				<div class="amado-navbar-toggler">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+
+			<!-- Header Area Start -->
+			<header
+				class="header-area clearfix">
+				<!-- Close Icon -->
+				<div class="nav-close">
+					<i class="fa fa-close" aria-hidden="true"></i>
+				</div>
+				<!-- Logo -->
+				<div class="logo">
+					<a href="/"><img src="/img/core-img/logo.png" alt=""></a>
+				</div>
+				<!-- Amado Nav -->
+				<nav class="amado-nav">
+					<ul>
+						<li class="active" id="menu_item_product">
+							<a href="/">{{app.session.get('LANG') == 'kr'? '제품' : 'Sản phẩm'}}</a>
+						</li>
+						<li id="menu_item_contact">
+							<a href="/tu-van">{{app.session.get('LANG') == 'kr' ? '조언' : 'Tư vấn'}}</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- Button Group -->
+				<div class="amado-btn-group mt-30 mb-100">
+					<a href="/change-lang/vi" class="btn amado-btn mb-15 {{app.session.get('LANG') == 'kr'? '': 'active'}}">Tiếng Việt</a>
+					<a href="/change-lang/kr" class="btn amado-btn {{app.session.get('LANG') == 'kr'? 'active':''}}">한국어</a>
+				</div>
+				<!-- Cart Menu -->
+				<div class="cart-fav-search mb-100">
+					<a href="/gio-hang" class="cart-nav"><img src="/img/core-img/cart.png" alt="">
+						{{app.session.get('LANG') == 'kr'? '카트': 'Giỏ hàng'}}
+						<span id="cart_quantity">(0)</span>
+					</a>
+					<a href="#" class="search-nav"><img src="/img/core-img/search.png" alt="">
+						{{app.session.get('LANG') == 'kr'? '찾고': 'Tìm kiếm'}}
+					</a>
+				</div>
+			</header>
+			<!-- Header Area End -->
+			{% block body %}{% endblock %}
+		</div>
+		<!-- The actual snackbar -->
+		<div id="snackbar">
+			<i aria-hidden="true" id="snackbar_icon"></i>
+			<span id="snackbar_message"></span>
+		</div>
+		<!-- ##### Main Content Wrapper End ##### -->
+		<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
+		<script src="/js/jquery/jquery-2.2.4.min.js"></script>
+		<!-- Popper js -->
+		<script src="/js/popper.min.js"></script>
+		<!-- Bootstrap js -->
+		<script src="/js/bootstrap.min.js"></script>
+		<!-- Plugins js -->
+		<script src="/js/plugins.js"></script>
+		<!-- Active js -->
+		<script src="/js/active.js"></script>
+		{# Toast #}
+		<script src="/js/toast.js"></script>
+		{# Cookie #}
+		<script src="/js/cookie.js"></script>
+		{# Helper #}
+		<script src="/js/helper.js"></script>
+		{# Waiting #}
+		<script src="/js/waiting.js"></script>
+		{# Main #}
+		<script src="/js/main.js"></script>
+	</body>
+</html>

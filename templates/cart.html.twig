@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<script>
+    var lang = '{{app.session.get('LANG')}}';
+</script>
+<div class="cart-table-area section-padding-100" id="cart_page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="cart-title mt-50">
+                    <h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> {{app.session.get('LANG') == 'kr'? '당신의 카트' : 'Giỏ hàng của bạn'}}</h2>
+                </div>
+
+                <div class="cart-table clearfix">
+                    <table class="table table-responsive" id="cart_table" style="display: none">
+                        <thead>
+                            <tr>
+                                <th>{{app.session.get('LANG') == 'kr'? '삽화':'Ảnh'}}</th>
+                                <th>{{app.session.get('LANG') == 'kr'? '상품명':'Tên'}}</th>
+                                <th>{{app.session.get('LANG') == 'kr'? '가격':'Giá'}}</th>
+                                <th>{{app.session.get('LANG') == 'kr'? '수량':'Số lượng'}}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart_container">
+                            {# need replace #}
+                            <tr>
+                                <td>{{app.session.get('LANG') == 'kr'? '로딩 ...':'Đang tải ...'}}</td>
+                                <td>{{app.session.get('LANG') == 'kr'? '로딩 ...':'Đang tải ...'}}</td>
+                                <td>{{app.session.get('LANG') == 'kr'? '로딩 ...':'Đang tải ...'}}</td>
+                                <td>{{app.session.get('LANG') == 'kr'? '로딩 ...':'Đang tải ...'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3 class="text-center" id="cart_message"> {{app.session.get('LANG') == 'kr'? '로딩 ...':'Đang tải ...'}}</h3>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="cart-summary">
+                    <h5>{{app.session.get('LANG') == 'kr'? '계산서':'Hóa đơn'}}:</h5>
+                    <ul class="summary-table">
+                        <li><span>{{app.session.get('LANG') == 'kr'? '수송':'Vận chuyển'}}:</span> <span>{{app.session.get('LANG') == 'kr'? '비어 있는':'Miễn phí'}}</span></li>
+                        <li><span>{{app.session.get('LANG') == 'kr'? '합계':'Tổng'}}:</span> <span id="cart_total_bill">{{app.session.get('LANG') == 'kr'? '로딩 ...':'Đang tải ...'}}</span></li>
+                    </ul>
+                    <div class="cart-btn mt-100">
+                        <button class="btn amado-btn w-100" id="btn_checkout">{{app.session.get('LANG') == 'kr'? '지불':'Thanh toán'}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cart-table-area section-padding-100" id="checkout_page" style="display: none">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="checkout_details_area mt-50 clearfix">
+
+                    <div class="cart-title">
+                        <h2><i class="fa fa-credit-card" aria-hidden="true"></i> {{app.session.get('LANG') == 'kr'? '결제 정보':'Thông tin thanh toán'}}</h2>
+                    </div>
+
+                    <form action="#" method="post">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <input type="text" class="form-control" id="fullname" value="" placeholder="{{app.session.get('LANG') == 'kr'? '성명':'Họ tên'}}" required>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <input type="number" class="form-control" id="phone" min="0" placeholder="{{app.session.get('LANG') == 'kr'? '전화':'Số điện thoại'}}" value="">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <input type="text" class="form-control mb-3" id="address" placeholder="{{app.session.get('LANG') == 'kr'? '주소':'Địa chỉ'}}" value="">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <textarea name="comment" class="form-control w-100" id="note" cols="30" rows="10" placeholder="{{app.session.get('LANG') == 'kr'? '메모 메시지':'Tin nhắn chú ý'}}"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="cart-summary">
+                    <h5>{{app.session.get('LANG') == 'kr'? '계산서':'Hóa đơn'}}:</h5>
+                    <ul class="summary-table">
+                        <li><span>{{app.session.get('LANG') == 'kr'? '수송':'Vận chuyển'}}:</span> <span>{{app.session.get('LANG') == 'kr'? '비어 있는':'Miễn phí'}}</span></li>
+                        <li><span>{{app.session.get('LANG') == 'kr'? '합계':'Tổng'}}:</span> <span id="final_cart_total_bill">{{app.session.get('LANG') == 'kr'? '로딩 ...':'Đang tải ...'}}</span></li>
+                    </ul>
+
+                    <div class="payment-method">
+                        <!-- Cash on delivery -->
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input payment-type" id="cb_cod" checked readonly>
+                            <label class="custom-control-label" for="cod" data-target="cb_cod">{{app.session.get('LANG') == 'kr'? '배달 결제':'Thanh toán khi nhận hàng'}}</label>
+                        </div>
+                        <!-- Paypal -->
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input payment-type" id="cb_online">
+                            <label class="custom-control-label" for="paypal" data-target="cb_online">{{app.session.get('LANG') == 'kr'? '온라인 결제':'Online'}} <img class="ml-15" src="img/core-img/paypal.png" alt=""></label>
+                        </div>
+                    </div>
+
+                    <div class="cart-btn mt-100">
+                        <button class="btn amado-btn w-100 mb-3" id="btn_payment">{{app.session.get('LANG') == 'kr'? '지불':'Thanh toán'}}</button>
+                        <button class="btn amado-btn bg-second w-100" id="btn_back_cart">{{app.session.get('LANG') == 'kr'? '장바구니로 돌아 가기':'Quay lại giỏ hàng'}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/cart.js"></script>
+{% endblock %}

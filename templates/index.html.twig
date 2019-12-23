@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!-- Product Catagories Area Start -->
+  <div class="products-catagories-area clearfix">
+      <div class="amado-pro-catagory clearfix">
+        {% for product in products %}
+            <div class="single-products-catagory clearfix">
+                <a href="/{{product.id}}/{{product.urlSeo}}">
+                    <img src="{{product.anhDaiDien}}" alt="">
+                    <!-- Hover Content -->
+                    <div class="hover-content">
+                        <div class="line"></div>
+                        <h4 class="text-primary px-2">{{app.session.get('LANG') == 'kr' ? product.tenKr : product.ten}}</h4>
+                        <p class="text-primary px-2">{{product.giaBan | number_format(0, ',', '.')}} VNĐ</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor%}
+      </div>
+  </div>
+  <!-- Product Catagories Area End -->
+{% endblock %}

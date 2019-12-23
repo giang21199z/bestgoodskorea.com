@@ -1,0 +1,38 @@
+index:
+  path: /
+  controller: App\Controller\DefaultController::index
+
+change_language:
+  path: /change-lang/{lang}
+  controller: App\Controller\DefaultController::changeLang
+
+cart:
+  path: /gio-hang
+  controller: App\Controller\DefaultController::cart
+
+detail:
+  path: /{id}/{ten}
+  controller: App\Controller\DefaultController::detail
+
+contact:
+  path: /tu-van
+  controller: App\Controller\DefaultController::contact
+api_get_cart:
+  path: /get-cart
+  controller: App\Controller\ApiController::getCart
+
+api_post_order:
+  path: /order
+  controller: App\Controller\ApiController::postOrder
+
+api_search_product:
+  path: /search
+  controller: App\Controller\ApiController::searchProduct
+
+api_upload:
+  path: /upload-image
+  controller: App\Controller\ApiController::uploadImage
+
+api_add_product:
+  path: /add-product
+  controller: App\Controller\ApiController::addProduct

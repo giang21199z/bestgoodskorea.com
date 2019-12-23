@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="cart-table-area section-padding-100" id="contact-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="checkout_details_area mt-50 clearfix">
+                    <div class="cart-title">
+                        <h2><i class="fa fa-volume-control-phone" aria-hidden="true"></i> {{app.session.get('LANG') == 'kr'? '전화 상담' : 'Tư vấn qua điện thoại'}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 col-lg-3 mt-2">
+                        <img class="img-fluid" src="/img/core-img/male.png">
+                    </div>
+                    <div class="col-6 col-lg-3 container-balloon mt-2">
+                        <div class="balloon balloon-green">
+                            <img class="img-fluid" src="/img/core-img/green.png">
+                            <div class="balloon-text p-xl-4 p-md-3 p-4">
+                                <div class="text-name">
+                                    {{app.session.get('LANG') == 'kr'? '안녕.' : 'Chào bạn.'}}<br>
+                                    {{app.session.get('LANG') == 'kr'? '제 이름은 정강입니다.' : 'Tôi là Jeong Kang.'}}<br>
+                                    <i class="fa fa-phone" aria-hidden="true"></i> 034.960.7996
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 container-balloon mt-2">
+                        <div class="balloon balloon-pink">
+                            <img class="img-fluid" src="/img/core-img/pink.png">
+                            <div class="balloon-text p-xl-4 p-md-3 p-4">
+                                <div class="text-name">
+                                    {{app.session.get('LANG') == 'kr'? '안녕.' : 'Chào bạn.'}}<br>
+                                    {{app.session.get('LANG') == 'kr'? '제 이름은 황유미입니다.' : 'Tôi là Hwang Yumi.'}}<br>
+                                    <i class="fa fa-phone" aria-hidden="true"></i> 035.758.3839
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 mt-2">
+                        <img class="img-fluid" src="/img/core-img/female.png">
+                    </div>
+                    <div class="col-12 text-center board-advertisement d-none d-lg-block">
+                        <img class="img-fluid" src="/img/core-img/south-korea.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('menu_item_product').className = '';
+    document.getElementById('menu_item_contact').className = 'active';
+</script>
+{% endblock %}

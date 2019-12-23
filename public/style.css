@@ -1,0 +1,95 @@
+    /* ####################################################
+    :: Template Name: Essence - Fashion Ecommerce Template
+    :: Author: Colorlib
+    :: Author URL: https://colorlib.com
+    :: Description: Essence is smart & elegant fashion e-commerce Template. It's suitable for all e-commerce business platform.
+    :: Version: 1.0.0
+    :: Created: April 27, 2018
+    :: Last Updated: May 2, 2018
+    #################################################### */
+    /* ---------------------------------------
+    ##### - PLACE YOUR CUSTOM CSS HERE - #####
+    --------------------------------------- */
+    .single-products-catagory .hover-content {
+        background: white;
+    }
+    .text-primary {
+        color: #CD2E3A !important;
+    }
+    .text-second {
+        color: #0047A0 !important;
+    }
+    .disable-event-pointer {
+        pointer-events: none;
+    }
+    .bg-primary {
+        background-color: #CD2E3A !important;
+    }
+    .bg-second {
+        background-color: #0047A0 !important;
+    }
+    
+    #contact-page .container-balloon {
+        position: relative;
+    }
+    
+    #contact-page .container-balloon .balloon {
+        position: absolute;
+        width: 80%;
+    }
+    
+    #contact-page .container-balloon .balloon-green {
+        left: 0;
+    }
+    
+    #contact-page .container-balloon .balloon-pink {
+        right: 0;
+    }
+    
+    #contact-page .container-balloon .balloon-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    #contact-page .container-balloon .text-name {
+        position: relative;
+        color: #FFFFFF;
+        font-size: 1vw;
+    }
+    
+    #contact-page .board-advertisement {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    #contact-page .board-advertisement img {
+        width: 45%;
+    }
+    
+    
+    /*lg*/
+    @media (max-width: 1199.98px) {}
+    /* md */
+    @media (max-width: 991.98px) {
+        #contact-page .container-balloon .text-name {
+            font-size: 2vw;
+        }
+    }
+    /* sm */
+    @media (max-width: 767.98px) {
+        #contact-page .container-balloon .text-name {
+            font-size: 3vw;
+        }
+    }
+    /* xs */
+    @media (max-width: 575.98px) {
+        #contact-page .container-balloon .balloon {
+            position: absolute;
+            width: 100%;
+        }
+        #contact-page .container-balloon .text-name {
+            font-size: 3vw;
+        }
+    }
